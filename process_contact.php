@@ -2,6 +2,25 @@
 // Configurações de email para Hostgator
 header('Content-Type: text/html; charset=UTF-8');
 
+// CONFIGURAÇÃO SMTP (Opcional - Para maior confiabilidade)
+// Descomente as linhas abaixo e configure com seus dados da Hostgator
+/*
+require_once 'PHPMailer/PHPMailer.php';
+require_once 'PHPMailer/SMTP.php';
+require_once 'PHPMailer/Exception.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+// Configurações SMTP da Hostgator
+const SMTP_HOST = 'mail.emporiopimentaecafes.com.br';
+const SMTP_PORT = 587; // ou 465 para SSL
+const SMTP_USERNAME = 'contato@emporiopimentaecafes.com.br';
+const SMTP_PASSWORD = 'sua_senha_email'; // Altere para a senha do email
+const USE_SMTP = false; // Mude para true para usar SMTP
+*/
+
 // Verificar se o formulário foi enviado via POST
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
     http_response_code(405);
@@ -10,9 +29,9 @@ if ($_SERVER["REQUEST_METHOD"] != "POST") {
 }
 
 // Configurações do destinatário - ALTERE AQUI SEU EMAIL
-// $to = "contato@emporiopimentaecafes.com.br"; // Altere para seu email
-$to = "alexanderba09@gmail.com"; // Altere para seu email
-$headers = "From: noreply@" . $_SERVER['HTTP_HOST'] . "\r\n";
+// $to = "contato@emporiopimentaecafes.com.br"; // Email do seu domínio na Hostgator
+$to = "alexanderba09@gmail.com"; // Email do seu domínio na Hostgator
+$headers = "From: noreply@emporiopimentaecafes.com.br\r\n";
 $headers .= "Reply-To: " . $_POST['email'] . "\r\n";
 $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
