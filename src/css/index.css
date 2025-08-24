@@ -715,6 +715,178 @@ img.img-logo-footer {
     max-width: 300px;
 }
 
+/* Location and Contact Section */
+.localizacao-email {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 3.5rem;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.location-contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Maps Container */
+.maps-container h3,
+.contact-form-container h3 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.maps-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.map-item {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.map-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.map-item h4 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #603813;
+    font-weight: bold;
+}
+
+.map-item p {
+    margin-top: 15px;
+    color: #666;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Contact Form */
+.contact-form-container {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #603813;
+    font-size: 1rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #F4AA3F;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(244, 170, 63, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #F4AA3F 0%, #e89a2f 100%);
+    color: white;
+    border: none;
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(244, 170, 63, 0.4);
+    background: linear-gradient(135deg, #e89a2f 0%, #d88a1f 100%);
+}
+
+.submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Form Messages */
+.form-message {
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+.form-message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.form-message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
 /* Responsive Design */
 
 /* Desktop */
@@ -839,6 +1011,27 @@ img.img-logo-footer {
 
     .img-logo-footer {
         width: 250px;
+    }
+    
+    /* Location and Contact Section - Tablets */
+    .section-title {
+        font-size: 2.8rem;
+        margin-bottom: 40px;
+    }
+    
+    .location-contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .maps-container h3,
+    .contact-form-container h3 {
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
+    
+    .contact-form-container {
+        padding: 30px;
     }
 }
 
@@ -1051,6 +1244,56 @@ img.img-logo-footer {
     .free-entry>img {
         max-width: 200px;
     }
+    
+    /* Location and Contact Section - Mobile */
+    .localizacao-email {
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+        padding: 0 20px;
+    }
+    
+    .location-contact-grid {
+        gap: 30px;
+        padding: 0 20px;
+    }
+    
+    .maps-container h3,
+    .contact-form-container h3 {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+    
+    .maps-wrapper {
+        gap: 20px;
+    }
+    
+    .map-item {
+        padding: 15px;
+    }
+    
+    .map-item iframe {
+        height: 200px;
+    }
+    
+    .contact-form-container {
+        padding: 25px;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+    
+    .submit-btn {
+        padding: 15px 30px;
+        font-size: 1rem;
+    }
 }
 
 /* Small Mobile */
@@ -1154,6 +1397,56 @@ img.img-logo-footer {
 
     .img-logo-footer {
         width: 150px;
+    }
+    
+    /* Location and Contact Section - Small Mobile */
+    .localizacao-email {
+        padding: 40px 0;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+        padding: 0 15px;
+    }
+    
+    .location-contact-grid {
+        gap: 25px;
+        padding: 0 15px;
+    }
+    
+    .maps-container h3,
+    .contact-form-container h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .map-item {
+        padding: 12px;
+    }
+    
+    .map-item iframe {
+        height: 180px;
+    }
+    
+    .contact-form-container {
+        padding: 20px;
+    }
+    
+    .form-group {
+        gap: 15px;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+    
+    .submit-btn {
+        padding: 12px 25px;
+        font-size: 0.9rem;
     }
 }
 

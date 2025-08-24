@@ -336,8 +336,86 @@
         </div>
     </section>
 
-    <!-- ENVIO EMAIL -->
-    <section class="localizacao-email"></section>
+    <!-- LOCALIZAÇÃO E EMAIL -->
+    <section class="localizacao-email">
+        <div class="container">
+            <h2 class="font-antonio section-title">
+                <span class="cor-amarelo">LOCALIZAÇÃO</span> E <span class="cor-amarelo">CONTATO</span>
+            </h2>
+            <div class="location-contact-grid">
+                <!-- Mapa do Google -->
+                <div class="maps-container">
+                    <h3 class="font-antonio cor-marrom">Encontre-nos</h3>
+                    <div class="maps-wrapper">
+                        <!-- Localização Principal: Praça Amélia Boroto, São Mateus - ES -->
+                        <div class="map-item">
+                            <h4 class="font-montserrat">Local do Evento</h4>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3757.8234567890123!2d-40.12345678901234!3d-18.71234567890123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDQyJzQ0LjQiUyA0MMKwMDcnMjQuNCJX!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr"
+                                width="100%" height="250" style="border:0; border-radius: 10px;" allowfullscreen=""
+                                loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                            <p class="font-montserrat">Praça Amélia Boroto - São Mateus, ES</p>
+                        </div>
+
+                        <!-- Localização Secundária: Centro de São Mateus -->
+                        <div class="map-item">
+                            <h4 class="font-montserrat">Centro de São Mateus</h4>
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15031.289456789012!2d-40.12345678901234!3d-18.71234567890123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sSão+Mateus+ES!5e0!3m2!1spt-BR!2sbr!4v1234567890123!5m2!1spt-BR!2sbr"
+                                width="100%" height="250" style="border:0; border-radius: 10px;" allowfullscreen=""
+                                loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                            <p class="font-montserrat">Centro de São Mateus, ES</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulário de Contato -->
+                <div class="contact-form-container">
+                    <h3 class="font-antonio cor-marrom">Entre em Contato</h3>
+                    <form class="contact-form" action="process_contact.php" method="POST" id="contactForm">
+                        <div class="form-group">
+                            <label for="name" class="font-montserrat">Nome Completo *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="font-montserrat">E-mail *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="font-montserrat">Telefone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject" class="font-montserrat">Assunto *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Selecione um assunto</option>
+                                <option value="patrocinio">Patrocínio</option>
+                                <option value="expositores">Ser Expositor</option>
+                                <option value="informacoes">Informações Gerais</option>
+                                <option value="imprensa">Imprensa</option>
+                                <option value="outros">Outros</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="font-montserrat">Mensagem *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn font-antonio">
+                            <i class="fas fa-paper-plane"></i>
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">

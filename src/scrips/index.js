@@ -69,7 +69,7 @@ function openContact() {
 // }
 
 // Start coffee bean animation
-createCoffeeBeans();
+// createCoffeeBeans();
 
 // Add parallax effect to background
 window.addEventListener('scroll', () => {
@@ -117,3 +117,140 @@ const statsSection = document.querySelector('.stats');
 if (statsSection) {
     statsObserver.observe(statsSection);
 }
+
+// Contact Form Functionality with PHP
+document.addEventListener('DOMContentLoaded', function () {
+    const contactForm = document.getElementById('contactForm');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const phone = formData.get('phone') || 'Não informado';
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+
+            // Validate required fields
+            if (!name || !email || !subject || !message) {
+                showFormMessage('Por favor, preencha todos os campos obrigatórios.', 'error');
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showFormMessage('Por favor, insira um e-mail válido.', 'error');
+                return;
+            }
+
+            // Show loading state
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            submitBtn.disabled = true;
+
+            // Verificar se está rodando em servidor
+            if (window.location.protocol === 'file:') {
+                // Erro: precisa de servidor para funcionar
+                showFormMessage('⚠️ Para o formulário funcionar, você precisa executar em um servidor local (XAMPP, WAMP ou Live Server).', 'error');
+                
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                return;
+            }
+
+            // Send form data to NEW PHP script (NO EMAIL SENDING)
+            const timestamp = new Date().getTime();
+            fetch('process_contact.php?cache_bust=' + timestamp, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Show success message
+                    showFormMessage(data.message, 'success');
+                } else {
+                    // Show error message
+                    showFormMessage(data.message, 'error');
+                }
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                
+                // Show error message
+                showFormMessage('Erro ao enviar mensagem. Verifique sua conexão e tente novamente.', 'error');
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+    }
+});
+
+// Helper function to get subject text
+function getSubjectText(value) {
+    const subjects = {
+        'patrocinio': 'Patrocínio',
+        'expositores': 'Ser Expositor',
+        'informacoes': 'Informações Gerais',
+        'imprensa': 'Imprensa',
+        'outros': 'Outros'
+    };
+    return subjects[value] || 'Contato Geral';
+}
+
+// Show form messages
+function showFormMessage(message, type) {
+    // Remove existing message
+    const existingMessage = document.querySelector('.form-message');
+    if (existingMessage) {
+        existingMessage.remove();
+    }
+
+    // Create message element
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `form-message ${type}`;
+    messageDiv.innerHTML = `
+        <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-triangle'}"></i>
+        ${message}
+    `;
+
+    // Insert message before form
+    const form = document.getElementById('contactForm');
+    form.parentNode.insertBefore(messageDiv, form);
+
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+        if (messageDiv.parentNode) {
+            messageDiv.remove();
+        }
+    }, 5000);
+}
+
+// Phone number formatting
+document.getElementById('phone').addEventListener('input', function (e) {
+    let value = e.target.value.replace(/\D/g, '');
+
+    if (value.length >= 11) {
+        value = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+    } else if (value.length >= 7) {
+        value = value.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+    } else if (value.length >= 3) {
+        value = value.replace(/(\d{2})(\d{0,5})/, '($1) $2');
+    }
+
+    e.target.value = value;
+});
