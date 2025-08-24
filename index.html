@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empório Pimenta e Cafés - Sabores artesanais, cafés especiais e produtos selecionados.</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../Empório Pimenta e Cafés/src/css/index.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="coffee-bg"></div>
+        <nav class="nav">
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#atracoes">Atrações</a></li>
+                <li><a href="#programacao">Programação</a></li>
+                <li><a href="#patrocinio">Patrocínio</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+
+        <!-- <div class="hero-content fade-in">
+            <h1 class="main-title">EMPÓRIO</h1>
+            <div class="subtitle">Pimentas & Cafés</div>
+            <div class="location">SÃO MATEUS - ES</div>
+            <div class="tagline">
+                Turismo & Agronegócios<br>
+                Praia & Negócios
+            </div>
+        </div> -->
+        <div class="hero-content fade-in">
+            <div class="logo">
+                <img class="img-logo" src="../Empório Pimenta e Cafés/src/imgs/logo.png" alt="">
+            </div>
+            <div>
+                <h1 class="font-antonio">TURISMO & AGROTURISMO</h1>
+                <h1 class="font-antonio">PRAIA & NEGÓCIOS</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Event Info -->
+    <section class="event-info">
+        <div class="container">
+            <div class="patron-text slide-up">Seja um Patrocinador</div>
+            <div class="event-date slide-up">28 A 30 DE AGOSTO</div>
+            <div class="event-location slide-up">Praça Amélia Roberto - São Mateus - ES</div>
+            <div class="free-entry slide-up">
+                ENTRADA<br>GRATUITA
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Days -->
+    <section class="experience-days">
+        <div class="container">
+            <h2 class="experience-title">03 Dias de Experiências Inesquecíveis</h2>
+            <div class="experience-categories">
+                <div class="category">Conexão</div>
+                <div class="category">Conhecimento</div>
+                <div class="category">Gastronomia</div>
+                <div class="category">Negócios</div>
+                <div class="category">Atrações</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <h2>
+                Um evento que celebra<br>
+                os <span class="highlight">sabores, saberes e<br>
+                    negócios</span> do norte capixaba
+            </h2>
+
+            <div class="stats">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">+25 mil</span>
+                        <div class="stat-label">Visitantes Esperados</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">+50</span>
+                        <div class="stat-label">Expositores Presentes</div>
+                    </div>
+                </div>
+                <div style="margin-top: 30px; text-align: left;">
+                    <h3 style="color: #D2691E; margin-bottom: 15px;">Objetivos:</h3>
+                    <p>• Conectar produtores, empreendedores e turistas</p>
+                    <p>• Promover produtos regionais e turismo</p>
+                    <p>• Fortalecer a economia local</p>
+                    <p>• Valorizar a cultura capixaba</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="atracoes">
+        <div class="container">
+            <h2>Atrações e Destaques</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Concurso das Rainhas das Pimentas do Café</h3>
+                    <p>Competição que celebra os melhores produtos regionais</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Fórum Gastronômico das Experiências - FONESP</h3>
+                    <p>Workshops e demonstrações culinárias com chefs renomados</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-music"></i>
+                    <h3>Shows e apresentações culturais</h3>
+                    <p>Programação musical e cultural diversificada</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-store"></i>
+                    <h3>Shows musicais e apresentações culturais</h3>
+                    <p>Espaço para networking e oportunidades de negócios</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Roda gastronômica</h3>
+                    <p>Experiências culinárias únicas com produtos locais</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>Feira de produtos e artesanato</h3>
+                    <p>Exposição e venda de produtos regionais autênticos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta" id="contato">
+        <div class="container">
+            <h2>Entre em contato e conheça as<br>oportunidades para sua marca!</h2>
+            <button class="cta-button" onclick="openContact()">
+                <i class="fas fa-envelope"></i> Fale Conosco
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                EMPÓRIO<br>
+                <span style="color: #D2691E;">Pimentas & Cafés</span><br>
+                <small>SÃO MATEUS - ES</small>
+            </div>
+            <div class="footer-info">
+                <strong>Turismo & Agronegócios<br>Praia & Negócios</strong>
+            </div>
+            <div class="footer-info">
+                28 A 30 DE AGOSTO<br>
+                Praça Amélia Roberto - São Mateus - ES
+            </div>
+            <div class="free-entry" style="background: #D2691E; color: white; font-size: 1.2rem; margin: 20px 0;">
+                ENTRADA GRATUITA
+            </div>
+
+            <div class="sponsors">
+                <h4 style="margin-bottom: 15px;">Apoio e Patrocínio:</h4>
+                <div class="sponsors-logos">
+                    <div class="sponsor-logo">SEBRAE</div>
+                    <div class="sponsor-logo">FAPES</div>
+                    <div class="sponsor-logo">INCAPER</div>
+                    <div class="sponsor-logo">PREFEITURA</div>
+                    <div class="sponsor-logo">GOVERNO ES</div>
+                    <div class="sponsor-logo">ADETUR</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">
+                <p>Termos e condições / Políticas de Privacidade</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Coffee Beans -->
+    <!-- <div class="coffee-bean" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="coffee-bean" style="left: 20%; animation-delay: 2s;"></div>
+    <div class="coffee-bean" style="left: 80%; animation-delay: 4s;"></div>
+    <div class="coffee-bean" style="left: 90%; animation-delay: 6s;"></div> -->
+
+    <script src="../Empório Pimenta e Cafés/src/scrips/index.js"></script>
+</body>
+
+</html>
