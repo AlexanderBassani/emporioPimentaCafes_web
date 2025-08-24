@@ -729,14 +729,14 @@ img.img-logo-footer {
     letter-spacing: 2px;
 }
 
-.location-contact-grid {
+/* .location-contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-}
+} */
 
 /* Maps Container */
 .maps-container h3,
@@ -1012,24 +1012,24 @@ img.img-logo-footer {
     .img-logo-footer {
         width: 250px;
     }
-    
+
     /* Location and Contact Section - Tablets */
     .section-title {
         font-size: 2.8rem;
         margin-bottom: 40px;
     }
-    
+
     .location-contact-grid {
         grid-template-columns: 1fr;
         gap: 40px;
     }
-    
+
     .maps-container h3,
     .contact-form-container h3 {
         font-size: 2rem;
         margin-bottom: 25px;
     }
-    
+
     .contact-form-container {
         padding: 30px;
     }
@@ -1244,52 +1244,52 @@ img.img-logo-footer {
     .free-entry>img {
         max-width: 200px;
     }
-    
+
     /* Location and Contact Section - Mobile */
     .localizacao-email {
         padding: 60px 0;
     }
-    
+
     .section-title {
         font-size: 2.2rem;
         margin-bottom: 30px;
         padding: 0 20px;
     }
-    
+
     .location-contact-grid {
         gap: 30px;
         padding: 0 20px;
     }
-    
+
     .maps-container h3,
     .contact-form-container h3 {
         font-size: 1.8rem;
         margin-bottom: 20px;
     }
-    
+
     .maps-wrapper {
         gap: 20px;
     }
-    
+
     .map-item {
         padding: 15px;
     }
-    
+
     .map-item iframe {
         height: 200px;
     }
-    
+
     .contact-form-container {
         padding: 25px;
     }
-    
+
     .form-group input,
     .form-group select,
     .form-group textarea {
         padding: 12px;
         font-size: 0.9rem;
     }
-    
+
     .submit-btn {
         padding: 15px 30px;
         font-size: 1rem;
@@ -1398,52 +1398,52 @@ img.img-logo-footer {
     .img-logo-footer {
         width: 150px;
     }
-    
+
     /* Location and Contact Section - Small Mobile */
     .localizacao-email {
         padding: 40px 0;
     }
-    
+
     .section-title {
         font-size: 1.8rem;
         margin-bottom: 25px;
         padding: 0 15px;
     }
-    
+
     .location-contact-grid {
         gap: 25px;
         padding: 0 15px;
     }
-    
+
     .maps-container h3,
     .contact-form-container h3 {
         font-size: 1.5rem;
         margin-bottom: 15px;
     }
-    
+
     .map-item {
         padding: 12px;
     }
-    
+
     .map-item iframe {
         height: 180px;
     }
-    
+
     .contact-form-container {
         padding: 20px;
     }
-    
+
     .form-group {
         gap: 15px;
     }
-    
+
     .form-group input,
     .form-group select,
     .form-group textarea {
         padding: 10px;
         font-size: 0.85rem;
     }
-    
+
     .submit-btn {
         padding: 12px 25px;
         font-size: 0.9rem;
