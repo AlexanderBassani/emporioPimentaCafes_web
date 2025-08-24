@@ -310,15 +310,6 @@ nav.nav {
     font-weight: bold;
 }
 
-.free-entry {
-    transition: all 0.3s ease;
-}
-
-.free-entry:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-}
-
 /* Experience Days */
 .experience-days {
     background: #C69C6D;
@@ -711,32 +702,12 @@ i.fa-solid {
     align-items: center;
 }
 
-.sponsors {
-    /* margin: 30px 0;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px; */
-}
-
 .sponsors-logos {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
-}
-
-.sponsor-logo {
-    /* width: 80px;
-    height: 40px;
-    background: white;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666;
-    font-size: 12px;
-    font-weight: bold; */
 }
 
 img.img-logo-footer {
@@ -760,11 +731,6 @@ img.img-logo-footer {
 
     .event-date {
         font-size: 2rem;
-    }
-
-    .free-entry {
-        font-size: 1.5rem;
-        padding: 15px 30px;
     }
 
     .experience-categories {
