@@ -32,15 +32,15 @@ document.querySelectorAll('.slide-up, .feature-item, .stat-item').forEach(el => 
 });
 
 // Interactive category hover effects
-document.querySelectorAll('.category').forEach(category => {
-    category.addEventListener('mouseenter', function () {
-        this.style.transform = 'translateY(-5px) scale(1.05)';
-    });
+// document.querySelectorAll('.category').forEach(category => {
+//     category.addEventListener('mouseenter', function () {
+//         this.style.transform = 'translateY(-5px) scale(1.05)';
+//     });
 
-    category.addEventListener('mouseleave', function () {
-        this.style.transform = 'translateY(-3px) scale(1)';
-    });
-});
+//     category.addEventListener('mouseleave', function () {
+//         this.style.transform = 'translateY(-3px) scale(1)';
+//     });
+// });
 
 // Contact function
 function openContact() {
