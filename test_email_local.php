@@ -28,10 +28,9 @@ $to_email = "alexanderba09@gmail.com";
 $name = filter_var(trim($_POST['name']), FILTER_SANITIZE_STRING);
 $email = filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL);
 $phone = isset($_POST['phone']) ? filter_var(trim($_POST['phone']), FILTER_SANITIZE_STRING) : '';
-$subject = filter_var(trim($_POST['subject']), FILTER_SANITIZE_STRING);
 $message = filter_var(trim($_POST['message']), FILTER_SANITIZE_STRING);
 
-if (empty($name) || !$email || empty($subject) || empty($message)) {
+if (empty($name) || !$email || empty($message)) {
     echo json_encode(['success' => false, 'message' => 'Por favor, preencha todos os campos obrigatórios']);
     exit;
 }
@@ -41,17 +40,7 @@ if (empty($smtp_password)) {
     exit;
 }
 
-// Mapear assuntos
-$subjects_map = [
-    'patrocinio' => 'Patrocínio',
-    'expositores' => 'Ser Expositor', 
-    'informacoes' => 'Informações Gerais',
-    'imprensa' => 'Imprensa',
-    'outros' => 'Outros'
-];
-
-$subject_text = isset($subjects_map[$subject]) ? $subjects_map[$subject] : 'Contato';
-$email_subject = "Empório Pimenta e Cafés - " . $subject_text . " - " . $name;
+$email_subject = "Empório Pimenta e Cafés - Contato - " . $name;
 
 // Corpo do email
 $email_body = "
@@ -85,9 +74,6 @@ $email_body = "
             </div>
             <div class='info-row'>
                 <span class='label'>Telefone:</span> " . htmlspecialchars($phone) . "
-            </div>
-            <div class='info-row'>
-                <span class='label'>Assunto:</span> " . htmlspecialchars($subject_text) . "
             </div>
             <div class='info-row'>
                 <span class='label'>Mensagem:</span><br>

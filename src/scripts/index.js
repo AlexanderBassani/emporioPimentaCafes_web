@@ -131,11 +131,10 @@ document.addEventListener('DOMContentLoaded', function () {
             const name = formData.get('name');
             const email = formData.get('email');
             const phone = formData.get('phone') || 'Não informado';
-            const subject = formData.get('subject');
             const message = formData.get('message');
 
             // Validate required fields
-            if (!name || !email || !subject || !message) {
+            if (!name || !email || !message) {
                 showFormMessage('Por favor, preencha todos os campos obrigatórios.', 'error');
                 return;
             }
@@ -200,17 +199,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-// Helper function to get subject text
-function getSubjectText(value) {
-    const subjects = {
-        'patrocinio': 'Patrocínio',
-        'expositores': 'Ser Expositor',
-        'informacoes': 'Informações Gerais',
-        'imprensa': 'Imprensa',
-        'outros': 'Outros'
-    };
-    return subjects[value] || 'Contato Geral';
-}
 
 // Show form messages
 function showFormMessage(message, type) {
