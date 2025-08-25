@@ -156,12 +156,19 @@ document.addEventListener('DOMContentLoaded', function () {
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
             submitBtn.disabled = true;
 
+            // Get current date and time
+            const now = new Date();
+            const currentDate = now.toLocaleDateString('pt-BR');
+            const currentTime = now.toLocaleTimeString('pt-BR');
+
             // Prepare template parameters for EmailJS
             const templateParams = {
                 from_name: name,
                 from_email: email,
                 phone: phone,
                 message: message,
+                date: currentDate,
+                time: currentTime,
                 to_email: 'alexanderba09@gmail.com' // Email que receberá as mensagens
             };
 
