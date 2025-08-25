@@ -118,7 +118,12 @@ if (statsSection) {
     statsObserver.observe(statsSection);
 }
 
-// Contact Form Functionality with PHP
+// Initialize EmailJS
+(function () {
+    emailjs.init('VHw9DtObStpCFbRMS'); // Substitua pela sua chave pública do EmailJS
+})();
+
+// Contact Form Functionality with EmailJS
 document.addEventListener('DOMContentLoaded', function () {
     const contactForm = document.getElementById('contactForm');
 
@@ -127,11 +132,10 @@ document.addEventListener('DOMContentLoaded', function () {
             e.preventDefault();
 
             // Get form data
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const phone = formData.get('phone') || 'Não informado';
-            const message = formData.get('message');
+            const name = this.name.value.trim();
+            const email = this.email.value.trim();
+            const phone = this.phone.value.trim() || 'Não informado';
+            const message = this.message.value.trim();
 
             // Validate required fields
             if (!name || !email || !message) {
@@ -152,57 +156,39 @@ document.addEventListener('DOMContentLoaded', function () {
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
             submitBtn.disabled = true;
 
-            // Verificar se está rodando em servidor
-            if (window.location.protocol === 'file:') {
-                // Erro: precisa de servidor para funcionar
-                showFormMessage('⚠️ Para o formulário funcionar, você precisa executar em um servidor local (XAMPP, WAMP ou Live Server).', 'error');
-                
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                return;
-            }
+            // Prepare template parameters for EmailJS
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                phone: phone,
+                message: message,
+                to_email: 'alexanderba09@gmail.com' // Email que receberá as mensagens
+            };
 
-            // Send form data to NEW PHP script (NO EMAIL SENDING)
-            const timestamp = new Date().getTime();
-            fetch('process_contact.php?cache_bust=' + timestamp, {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                // Log para debug
-                console.log('Resposta do servidor:', data);
-                
-                if (data.success) {
+            // Send email using EmailJS
+            emailjs.send('service_y4ktfg3', 'template_msor0x5', templateParams)
+                .then(function (response) {
+                    console.log('Email enviado com sucesso:', response);
+
                     // Reset form
                     contactForm.reset();
-                    
+
                     // Show success message
-                    showFormMessage(data.message, 'success');
-                } else {
-                    // Show error message with debug info
-                    let errorMsg = data.message;
-                    if (data.debug) {
-                        console.log('Debug info:', data.debug);
-                        errorMsg += ' (Verifique o console para mais detalhes)';
-                    }
-                    showFormMessage(errorMsg, 'error');
-                }
-                
-                // Reset button
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            })
-            .catch(error => {
-                console.error('Erro:', error);
-                
-                // Show error message
-                showFormMessage('Erro ao enviar mensagem. Verifique sua conexão e tente novamente.', 'error');
-                
-                // Reset button
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            });
+                    showFormMessage('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
+
+                    // Reset button
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, function (error) {
+                    console.error('Erro ao enviar email:', error);
+
+                    // Show error message
+                    showFormMessage('Erro ao enviar mensagem. Tente novamente mais tarde.', 'error');
+
+                    // Reset button
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                });
         });
     }
 });
