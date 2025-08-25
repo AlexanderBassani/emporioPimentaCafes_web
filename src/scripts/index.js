@@ -170,6 +170,9 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .then(response => response.json())
             .then(data => {
+                // Log para debug
+                console.log('Resposta do servidor:', data);
+                
                 if (data.success) {
                     // Reset form
                     contactForm.reset();
@@ -177,8 +180,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Show success message
                     showFormMessage(data.message, 'success');
                 } else {
-                    // Show error message
-                    showFormMessage(data.message, 'error');
+                    // Show error message with debug info
+                    let errorMsg = data.message;
+                    if (data.debug) {
+                        console.log('Debug info:', data.debug);
+                        errorMsg += ' (Verifique o console para mais detalhes)';
+                    }
+                    showFormMessage(errorMsg, 'error');
                 }
                 
                 // Reset button

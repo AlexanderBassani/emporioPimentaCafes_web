@@ -119,17 +119,44 @@ $email_body = "
 // Tentar enviar o email
 $email_sent = mail($to, $email_subject, $email_body, $headers);
 
+// Log de debug
+error_log("Email attempt - To: $to, Subject: $email_subject, Result: " . ($email_sent ? 'SUCCESS' : 'FAILED'));
+
 if ($email_sent) {
-    // Email enviado com sucesso
-    $response = [
-        'success' => true,
-        'message' => 'Mensagem enviada com sucesso! Entraremos em contato em breve.'
-    ];
+    // Verificar se realmente funcionou (mail() pode retornar true mesmo se não enviar)
+    if (function_exists('mail')) {
+        $response = [
+            'success' => true,
+            'message' => 'Mensagem enviada com sucesso! Entraremos em contato em breve.',
+            'debug' => 'Email enviado via função mail() do PHP'
+        ];
+    } else {
+        $response = [
+            'success' => false,
+            'message' => 'Função mail() não está disponível no servidor.'
+        ];
+    }
 } else {
-    // Erro ao enviar email
+    // Verificar possíveis causas do erro
+    $error_msg = 'Erro ao enviar mensagem.';
+    
+    if (!function_exists('mail')) {
+        $error_msg = 'Função mail() não está disponível no servidor.';
+    } elseif (!ini_get('sendmail_path') && !ini_get('SMTP')) {
+        $error_msg = 'SMTP não configurado no servidor. Configure o email no XAMPP.';
+    } else {
+        $error_msg = 'Erro interno do servidor de email. Tente novamente.';
+    }
+    
     $response = [
         'success' => false,
-        'message' => 'Erro ao enviar mensagem. Tente novamente mais tarde.'
+        'message' => $error_msg,
+        'debug' => [
+            'mail_function' => function_exists('mail'),
+            'sendmail_path' => ini_get('sendmail_path'),
+            'SMTP' => ini_get('SMTP'),
+            'smtp_port' => ini_get('smtp_port')
+        ]
     ];
 }
 
