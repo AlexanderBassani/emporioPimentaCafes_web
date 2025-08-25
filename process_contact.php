@@ -71,64 +71,64 @@ $email_subject = "Empório Pimenta e Cafés - " . $subject_text . " - " . $name;
 
 // Montar o corpo do email em HTML
 $email_body = "
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset='UTF-8'>
-    <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .header { background-color: #8B4513; color: #FFD700; padding: 20px; text-align: center; }
-        .content { background-color: #f9f9f9; padding: 20px; }
-        .info-row { margin-bottom: 15px; }
-        .label { font-weight: bold; color: #8B4513; }
-        .footer { background-color: #8B4513; color: white; padding: 10px; text-align: center; font-size: 12px; }
-    </style>
-</head>
-<body>
-    <div class='container'>
-        <div class='header'>
-            <h1>Empório Pimenta e Cafés</h1>
-            <p>Nova mensagem de contato</p>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset='UTF-8'>
+        <style>
+            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+            .header { background-color: #8B4513; color: #FFD700; padding: 20px; text-align: center; }
+            .content { background-color: #f9f9f9; padding: 20px; }
+            .info-row { margin-bottom: 15px; }
+            .label { font-weight: bold; color: #8B4513; }
+            .footer { background-color: #8B4513; color: white; padding: 10px; text-align: center; font-size: 12px; }
+        </style>
+    </head>
+    <body>
+        <div class='container'>
+            <div class='header'>
+                <h1>Empório Pimenta e Cafés</h1>
+                <p>Nova mensagem de contato</p>
+            </div>
+            
+            <div class='content'>
+                <div class='info-row'>
+                    <span class='label'>Nome:</span> " . htmlspecialchars($name) . "
+                </div>
+                
+                <div class='info-row'>
+                    <span class='label'>Email:</span> " . htmlspecialchars($email) . "
+                </div>
+                
+                <div class='info-row'>
+                    <span class='label'>Telefone:</span> " . htmlspecialchars($phone) . "
+                </div>
+                
+                <div class='info-row'>
+                    <span class='label'>Assunto:</span> " . htmlspecialchars($subject_text) . "
+                </div>
+                
+                <div class='info-row'>
+                    <span class='label'>Mensagem:</span><br>
+                    " . nl2br(htmlspecialchars($message)) . "
+                </div>
+                
+                <div class='info-row'>
+                    <span class='label'>Data:</span> " . date('d/m/Y H:i:s') . "
+                </div>
+                
+                <div class='info-row'>
+                    <span class='label'>IP:</span> " . $_SERVER['REMOTE_ADDR'] . "
+                </div>
+            </div>
+            
+            <div class='footer'>
+                <p>Mensagem enviada através do site do Empório Pimenta e Cafés</p>
+            </div>
         </div>
-        
-        <div class='content'>
-            <div class='info-row'>
-                <span class='label'>Nome:</span> " . htmlspecialchars($name) . "
-            </div>
-            
-            <div class='info-row'>
-                <span class='label'>Email:</span> " . htmlspecialchars($email) . "
-            </div>
-            
-            <div class='info-row'>
-                <span class='label'>Telefone:</span> " . htmlspecialchars($phone) . "
-            </div>
-            
-            <div class='info-row'>
-                <span class='label'>Assunto:</span> " . htmlspecialchars($subject_text) . "
-            </div>
-            
-            <div class='info-row'>
-                <span class='label'>Mensagem:</span><br>
-                " . nl2br(htmlspecialchars($message)) . "
-            </div>
-            
-            <div class='info-row'>
-                <span class='label'>Data:</span> " . date('d/m/Y H:i:s') . "
-            </div>
-            
-            <div class='info-row'>
-                <span class='label'>IP:</span> " . $_SERVER['REMOTE_ADDR'] . "
-            </div>
-        </div>
-        
-        <div class='footer'>
-            <p>Mensagem enviada através do site do Empório Pimenta e Cafés</p>
-        </div>
-    </div>
-</body>
-</html>";
+    </body>
+    </html>";
 
 // Tentar enviar o email
 $email_sent = mail($to, $email_subject, $email_body, $headers);
