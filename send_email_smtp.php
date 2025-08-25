@@ -216,13 +216,7 @@ if ($email_sent) {
     ];
 }
 
-// Responder com JSON ou redirecionar
-if (isset($_SERVER['HTTP_CONTENT_TYPE']) && strpos($_SERVER['HTTP_CONTENT_TYPE'], 'application/json') !== false) {
-    echo json_encode($response);
-} else {
-    $message_param = urlencode($response['message']);
-    $status_param = $response['success'] ? 'success' : 'error';
-    header("Location: index.html?message={$message_param}&status={$status_param}");
-    exit;
-}
+// Sempre retornar JSON para requisições AJAX
+header('Content-Type: application/json');
+echo json_encode($response);
 ?>
