@@ -76,6 +76,7 @@ function openContact() {
     window.open(`https://wa.me/5527999999999?text=${message}`, '_blank');
 }
 
+
 // Dynamic coffee bean generation
 // function createCoffeeBeans() {
 //     setInterval(() => {
