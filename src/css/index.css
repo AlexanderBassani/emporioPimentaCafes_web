@@ -1246,9 +1246,9 @@ img.img-logo-footer {
         margin-bottom: 10px;
     }
 
-    .programacao {
+    /* .programacao {
         padding: 40px 0;
-    }
+    } */
 
     .programacao-title h1:first-child {
         font-size: 2.5em;
@@ -1408,6 +1408,24 @@ img.img-logo-footer {
     .category {
         font-size: 1em;
         padding: 12px;
+        border-bottom: 1px solid #4d3d34;
+    }
+
+    .footer-info-1 {
+        font-size: 1.8em;
+    }
+
+    .footer-info-2 {
+        font-size: 2.4rem;
+    }
+
+    .slide-up {
+        text-align: center;
+    }
+
+    .container-event {
+        justify-content: center;
+        align-items: center;
     }
 
     .main-content-title {
