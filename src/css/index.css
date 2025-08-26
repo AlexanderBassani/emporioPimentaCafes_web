@@ -671,7 +671,10 @@ i.fa-solid {
 
 /* Footer */
 .footer {
-    background: #1a0f0a;
+    /* background: #1a0f0a; */
+    background-image: url(../imgs/fun4.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     padding: 40px 0;
     text-align: center;
     color: white;
@@ -690,13 +693,28 @@ i.fa-solid {
     color: #D2691E;
 }
 
-.footer-info {
-    font-size: 2.5rem;
+.footer-info-1 {
+    font-size: 3rem;
     word-spacing: 1px;
-    line-height: 1em;
+    line-height: 1.3em;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-transform: uppercase;
+    text-align: end;
+}
+
+.footer-info-2 {
+    font-size: 3.5rem;
+    word-spacing: 1px;
+    line-height: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-info-2-location {
+    font-size: 0.43em !important;
 }
 
 .sponsors-logos {
@@ -729,14 +747,14 @@ img.img-logo-footer {
     letter-spacing: 2px;
 }
 
-/* .location-contact-grid {
+.location-contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-} */
+}
 
 /* Maps Container */
 .maps-container h3,
@@ -757,7 +775,7 @@ img.img-logo-footer {
 .map-item {
     background: white;
     border-radius: 15px;
-    padding: 20px;
+    padding: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
@@ -775,7 +793,7 @@ img.img-logo-footer {
 }
 
 .map-item p {
-    margin-top: 15px;
+    /* margin-top: 15px; */
     color: #666;
     font-size: 1rem;
     text-align: center;

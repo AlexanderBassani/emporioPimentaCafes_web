@@ -120,7 +120,7 @@ if (statsSection) {
 
 // Initialize EmailJS
 (function () {
-    emailjs.init('VHw9DtObStpCFbRMS'); // Substitua pela sua chave pública do EmailJS
+    emailjs.init('VHw9DtObStpCFbRMS');
 })();
 
 // Contact Form Functionality with EmailJS
