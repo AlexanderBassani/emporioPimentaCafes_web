@@ -17,16 +17,21 @@
 <body>
 
     <!-- Header -->
-    <header class="header">
+    <header class="header" id="inicio">
         <div class="coffee-bg"></div>
         <nav class="nav">
-            <ul>
-                <li><a class="font-montserrat" href="#inicio">Início</a></li>
-                <li><a class="font-montserrat" href="#sobre">Sobre</a></li>
-                <li><a class="font-montserrat" href="#atracoes">Atrações</a></li>
-                <li><a class="font-montserrat" href="#programacao">Programação</a></li>
-                <li><a class="font-montserrat" href="#patrocinio">Patrocínio</a></li>
-                <li><a class="font-montserrat" href="#contato">Contato</a></li>
+            <div class="nav-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a class="font-montserrat" href="#inicio" onclick="closeMenu()">Início</a></li>
+                <li><a class="font-montserrat" href="#sobre" onclick="closeMenu()">Sobre</a></li>
+                <li><a class="font-montserrat" href="#atracoes" onclick="closeMenu()">Atrações</a></li>
+                <li><a class="font-montserrat" href="#programacao" onclick="closeMenu()">Programação</a></li>
+                <li><a class="font-montserrat" href="#patrocinio" onclick="closeMenu()">Patrocínio</a></li>
+                <li><a class="font-montserrat" href="#contato" onclick="closeMenu()">Contato</a></li>
             </ul>
         </nav>
 
@@ -44,7 +49,7 @@
     <!-- Event Info -->
     <!-- <section class="event-info"> -->
     <section class="content-event-info">
-        <div class="container-patrocionio">
+        <div class="container-patrocionio" id="patrocinio">
             <a href="https://drive.google.com/file/d/1SIjcjHR6lWKpCsbuMIiQAdKW-4gEeckU/view?usp=sharing"
                 class="patron-text slide-up font-antonio"><span class="cor-marrom">SEJA UM</span> PATROCINADOR
             </a>
@@ -74,7 +79,7 @@
     </section>
 
     <!-- Main Content -->
-    <section class="main-content">
+    <section class="main-content" id="sobre">
         <div class="main-content-title">
             <h1 class="font-antonio">
                 Um evento que celebra<br>
@@ -151,7 +156,7 @@
     </section>
 
     <!-- Programação -->
-    <div class="programacao">
+    <div class="programacao" id="programacao">
         <div class="programacao-title font-antonio">
             <h1 class="cor-amarelo"> PROGRAMAÇÃO </h1>
             <h1 class="cor-marrom"> <span class="cor-amarelo">28</span> A <span class="cor-amarelo">30</span> DE AGOSTO

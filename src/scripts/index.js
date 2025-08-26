@@ -42,6 +42,34 @@ document.querySelectorAll('.slide-up, .feature-item, .stat-item').forEach(el => 
 //     });
 // });
 
+// Mobile Navigation Functions
+function toggleMenu() {
+    const navMenu = document.querySelector('.nav-menu');
+    const navToggle = document.querySelector('.nav-toggle');
+    
+    navMenu.classList.toggle('active');
+    navToggle.classList.toggle('active');
+}
+
+function closeMenu() {
+    const navMenu = document.querySelector('.nav-menu');
+    const navToggle = document.querySelector('.nav-toggle');
+    
+    navMenu.classList.remove('active');
+    navToggle.classList.remove('active');
+}
+
+// Close menu when clicking outside
+document.addEventListener('click', function(e) {
+    const navMenu = document.querySelector('.nav-menu');
+    const navToggle = document.querySelector('.nav-toggle');
+    
+    if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+        navMenu.classList.remove('active');
+        navToggle.classList.remove('active');
+    }
+});
+
 // Contact function
 function openContact() {
     const message = encodeURIComponent("Olá! Gostaria de saber mais sobre as oportunidades de patrocínio do Empório Pimentas & Cafés.");
