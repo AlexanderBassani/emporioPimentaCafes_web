@@ -421,6 +421,7 @@ nav.nav {
 .container-event {
     background-color: #fff;
     background-image: url(../imgs/ICON_EMOJI.png);
+    background-position: -140px 33px;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -1595,6 +1596,10 @@ img.img-logo-footer {
 
 /* Small Mobile */
 @media (max-width: 480px) {
+    .programacao-info-texto {
+        font-size: 0.8em;
+    }
+
     .nav ul {
         gap: 10px;
     }
