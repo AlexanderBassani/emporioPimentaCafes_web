@@ -1,3 +1,66 @@
+// Loading Screen Management
+function initializeLoadingScreen() {
+    const loadingScreen = document.getElementById('loading-screen');
+    const mainContent = document.getElementById('main-content');
+    
+    // Hide main content initially
+    if (mainContent) {
+        mainContent.classList.remove('show');
+    }
+    
+    // Function to hide loading screen and show content
+    function hideLoadingScreen() {
+        if (loadingScreen) {
+            loadingScreen.classList.add('hide');
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+                if (mainContent) {
+                    mainContent.classList.add('show');
+                }
+            }, 500);
+        }
+    }
+    
+    // Wait for all content to load
+    if (document.readyState === 'complete') {
+        // If already loaded, hide immediately
+        setTimeout(hideLoadingScreen, 1000);
+    } else {
+        // Wait for window load event
+        window.addEventListener('load', function() {
+            // Wait for all images and resources to load
+            const images = document.querySelectorAll('img');
+            let loadedImages = 0;
+            
+            function imageLoaded() {
+                loadedImages++;
+                if (loadedImages === images.length) {
+                    // All images loaded, wait a bit more then hide loading screen
+                    setTimeout(hideLoadingScreen, 1000);
+                }
+            }
+            
+            if (images.length === 0) {
+                // No images to load
+                setTimeout(hideLoadingScreen, 1000);
+            } else {
+                // Check each image
+                images.forEach(img => {
+                    if (img.complete && img.naturalHeight !== 0) {
+                        imageLoaded();
+                    } else {
+                        img.addEventListener('load', imageLoaded);
+                        img.addEventListener('error', imageLoaded); // Count errors as loaded too
+                    }
+                });
+            }
+        });
+    }
+}
+
+// Initialize loading screen when DOM is ready
+document.addEventListener('DOMContentLoaded', initializeLoadingScreen);
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
